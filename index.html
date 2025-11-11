@@ -12,54 +12,59 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
         line-height: 1.6;
-        color: #333;
-        background: #f5f5f5;
+        color: #c9d1d9;
+        background: #0d1117;
       }
 
       header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: #161b22;
+        color: #58a6ff;
         padding: 2rem;
-        text-align: center;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #30363d;
       }
 
       header h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.8rem;
+        font-weight: 400;
+        margin-bottom: 0.3rem;
+        letter-spacing: -0.5px;
+      }
+
+      header p {
+        color: #8b949e;
+        font-size: 0.9rem;
       }
 
       .container {
         max-width: 1400px;
-        margin: 2rem auto;
-        padding: 0 2rem;
+        margin: 0 auto;
+        padding: 0;
       }
 
       .section {
-        background: white;
-        border-radius: 8px;
+        background: #0d1117;
         padding: 2rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #21262d;
       }
 
       .section h2 {
-        color: #667eea;
-        margin-bottom: 1rem;
-        font-size: 1.8rem;
+        color: #58a6ff;
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+        font-weight: 400;
+        letter-spacing: -0.3px;
       }
 
       .video-container {
         position: relative;
         width: 100%;
-        max-width: 800px;
-        margin: 1rem auto;
+        max-width: 900px;
+        margin: 0 auto;
         background: #000;
-        border-radius: 8px;
-        overflow: hidden;
+        border: 1px solid #30363d;
+        border-radius: 2px;
       }
 
       .video-container video {
@@ -69,58 +74,68 @@
 
       .file-explorer {
         display: grid;
-        grid-template-columns: 300px 1fr;
-        gap: 1rem;
-        height: 600px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        overflow: hidden;
+        grid-template-columns: 280px 1fr;
+        gap: 0;
+        height: 650px;
+        border: 1px solid #30363d;
+        background: #0d1117;
       }
 
       .file-tree {
-        background: #f8f9fa;
-        padding: 1rem;
+        background: #0d1117;
+        padding: 0.5rem;
         overflow-y: auto;
-        border-right: 1px solid #ddd;
+        border-right: 1px solid #21262d;
       }
 
       .file-content {
-        background: #1e1e1e;
-        color: #d4d4d4;
+        background: #0d1117;
+        color: #c9d1d9;
         padding: 1rem;
         overflow-y: auto;
-        font-family: 'Courier New', monospace;
-        font-size: 0.9rem;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+        font-size: 0.85rem;
+        line-height: 1.5;
       }
 
       .tree-item {
-        padding: 0.3rem 0.5rem;
+        padding: 0.25rem 0.5rem;
         cursor: pointer;
         user-select: none;
-        border-radius: 4px;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.4rem;
+        color: #8b949e;
+        font-size: 0.85rem;
+        transition: background 0.1s;
       }
 
       .tree-item:hover {
-        background: #e9ecef;
+        background: #161b22;
+        color: #c9d1d9;
       }
 
       .tree-item.selected {
-        background: #667eea;
-        color: white;
+        background: #1f6feb;
+        color: #ffffff;
       }
 
       .tree-item.folder {
-        font-weight: 500;
+        font-weight: 400;
+        color: #8b949e;
+      }
+
+      .tree-item.folder:hover {
+        color: #c9d1d9;
       }
 
       .folder-toggle {
         cursor: pointer;
-        margin-right: 0.3rem;
+        margin-right: 0.2rem;
         display: inline-block;
-        width: 12px;
+        width: 10px;
+        font-size: 0.7rem;
+        color: #8b949e;
       }
 
       .folder-content {
@@ -133,136 +148,184 @@
 
       pre {
         margin: 0;
-        white-space: pre-wrap;
-        word-wrap: break-word;
+        white-space: pre;
+        overflow-x: auto;
       }
 
       .placeholder {
-        color: #888;
+        color: #6e7681;
         text-align: center;
         padding: 2rem;
+        font-size: 0.9rem;
       }
 
       .description {
-        line-height: 1.8;
-        color: #555;
+        line-height: 1.7;
+        color: #c9d1d9;
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 0.95rem;
+      }
+
+      .description p {
+        margin-bottom: 1rem;
       }
 
       .description h3 {
-        color: #667eea;
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
+        color: #58a6ff;
+        margin-top: 1.8rem;
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+        font-weight: 400;
       }
 
       .description ul {
-        margin-left: 2rem;
+        margin-left: 1.5rem;
         margin-top: 0.5rem;
+        list-style: none;
       }
 
       .description li {
         margin-bottom: 0.5rem;
+        padding-left: 1.2rem;
+        position: relative;
+      }
+
+      .description li:before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #58a6ff;
+      }
+
+      .description strong {
+        color: #58a6ff;
+        font-weight: 400;
       }
 
       .error {
-        color: #dc3545;
+        color: #f85149;
         padding: 1rem;
-        background: #f8d7da;
-        border-radius: 4px;
+        background: #1c1e26;
+        border: 1px solid #30363d;
+        border-radius: 2px;
         margin-top: 1rem;
+        font-size: 0.85rem;
       }
 
       .loading {
-        color: #666;
+        color: #6e7681;
         text-align: center;
         padding: 1rem;
+        font-size: 0.85rem;
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #0d1117;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #30363d;
+        border-radius: 2px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #484f58;
+      }
+
+      code {
+        color: #79c0ff;
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>🖥️ My Operating System Project</h1>
-      <p>A custom OS with full Doom support</p>
+      <div class="container">
+        <h1>$ ./os-project</h1>
+        <p>RISC-V operating system with Doom support</p>
+      </div>
     </header>
 
     <div class="container">
       <!-- Video Section -->
       <div class="section">
-        <h2>Doom Running on My OS</h2>
+        <h2>demo: doom</h2>
         <div class="video-container">
-          <video controls>
+          <video controls muted>
             <source src="doom-demo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
-        <p style="text-align: center; margin-top: 1rem; color: #666">
-          <em>Upload your doom-demo.mp4 file to the repository root</em>
-        </p>
       </div>
 
       <!-- Description Section -->
       <div class="section">
-        <h2>Project Overview</h2>
+        <h2>overview</h2>
         <div class="description">
           <p>
-            This is a custom operating system built from scratch with support
-            for running Doom. The project demonstrates fundamental OS concepts
+            A custom operating system built from scratch with support for
+            running Doom. The project demonstrates fundamental OS concepts
             including memory management, process scheduling, and graphics
-            rendering.
+            rendering on RISC-V architecture.
           </p>
 
-          <h3>Key Features</h3>
+          <h3>features</h3>
           <ul>
             <li>
-              <strong>Custom Bootloader:</strong> Loads the kernel into memory
+              <strong>Custom Bootloader</strong> Loads the kernel into memory
               and transfers control
             </li>
             <li>
-              <strong>Memory Management:</strong> Implements paging and virtual
+              <strong>Memory Management</strong> Implements paging and virtual
               memory
             </li>
             <li>
-              <strong>Process Scheduler:</strong> Round-robin scheduling with
+              <strong>Process Scheduler</strong> Round-robin scheduling with
               priority queues
             </li>
             <li>
-              <strong>Graphics Driver:</strong> VGA and framebuffer support for
-              Doom rendering
+              <strong>Graphics Driver</strong> Framebuffer support for Doom
+              rendering
             </li>
             <li>
-              <strong>Keyboard & Mouse Input:</strong> PS/2 controller drivers
+              <strong>VirtIO Devices</strong> Block device and RNG drivers
             </li>
             <li>
-              <strong>File System:</strong> Basic FAT32 implementation for game
-              data
+              <strong>File System</strong> KTFS implementation for game data
             </li>
           </ul>
 
-          <h3>Technical Details</h3>
+          <h3>architecture</h3>
           <p>
-            The OS is written primarily in C with assembly for low-level
-            operations. It boots via GRUB and runs in protected mode. The Doom
-            port required implementing a custom graphics interface and input
-            handling system compatible with the original Doom engine.
+            The OS is written in C and RISC-V assembly. It runs on QEMU and
+            handles interrupts via PLIC (Platform-Level Interrupt Controller).
+            The Doom port interfaces directly with the framebuffer device and
+            implements custom input handling.
           </p>
 
-          <h3>Building and Running</h3>
+          <h3>building</h3>
           <p>
-            See the README.md in the source tree for build instructions. You'll
-            need a cross-compiler toolchain and QEMU or VirtualBox for testing.
+            See the Makefile in sys/ for build instructions. Requires a RISC-V
+            cross-compiler toolchain and QEMU for testing.
           </p>
         </div>
       </div>
 
       <!-- File Explorer Section -->
       <div class="section">
-        <h2>Source Code Explorer</h2>
+        <h2>source tree</h2>
 
         <div class="file-explorer">
           <div class="file-tree" id="fileTree">
-            <div class="loading">Loading file structure...</div>
+            <div class="loading">loading...</div>
           </div>
           <div class="file-content" id="fileContent">
-            <div class="placeholder">Select a file to view its contents</div>
+            <div class="placeholder">select a file to view contents</div>
           </div>
         </div>
       </div>
@@ -272,96 +335,47 @@
       const fileTree = document.getElementById('fileTree');
       const fileContent = document.getElementById('fileContent');
 
-      // This will hold the file structure
+      // This will hold the file structure (only .h header files)
       const fileStructure = {
         code: {
           sys: {
             dev: {
               'fbuf.h': 'code/sys/dev/fbuf.h',
-              'rtc.c': 'code/sys/dev/rtc.c',
               'rtc.h': 'code/sys/dev/rtc.h',
-              'uart.c': 'code/sys/dev/uart.c',
               'uart.h': 'code/sys/dev/uart.h',
-              'vioblk.c': 'code/sys/dev/vioblk.c',
-              'viorng.c': 'code/sys/dev/viorng.c',
-              'virtio.c': 'code/sys/dev/virtio.c',
               'virtio.h': 'code/sys/dev/virtio.h',
             },
-            Makefile: 'code/sys/Makefile',
-            'assert.c': 'code/sys/assert.c',
             'assert.h': 'code/sys/assert.h',
-            'cache.c': 'code/sys/cache.c',
             'cache.h': 'code/sys/cache.h',
             'conf.h': 'code/sys/conf.h',
-            'console.c': 'code/sys/console.c',
             'console.h': 'code/sys/console.h',
-            'device.c': 'code/sys/device.c',
             'device.h': 'code/sys/device.h',
-            'elf.c': 'code/sys/elf.c',
             'elf.h': 'code/sys/elf.h',
-            'error.c': 'code/sys/error.c',
             'error.h': 'code/sys/error.h',
-            'excp.c': 'code/sys/excp.c',
             'fs.h': 'code/sys/fs.h',
             'heap.h': 'code/sys/heap.h',
-            'heap0.c': 'code/sys/heap0.c',
-            'intr.c': 'code/sys/intr.c',
             'intr.h': 'code/sys/intr.h',
-            'io.c': 'code/sys/io.c',
             'io.h': 'code/sys/io.h',
             'ioimpl.h': 'code/sys/ioimpl.h',
-            'kernel.ld': 'code/sys/kernel.ld',
-            'ktfs.c': 'code/sys/ktfs.c',
             'ktfs.h': 'code/sys/ktfs.h',
-            'main.c': 'code/sys/main.c',
-            'memory.c': 'code/sys/memory.c',
             'memory.h': 'code/sys/memory.h',
-            'plic.c': 'code/sys/plic.c',
             'plic.h': 'code/sys/plic.h',
-            'process.c': 'code/sys/process.c',
             'process.h': 'code/sys/process.h',
             'riscv.h': 'code/sys/riscv.h',
             'scnum.h': 'code/sys/scnum.h',
             'see.h': 'code/sys/see.h',
-            'see.s': 'code/sys/see.s',
-            'start.s': 'code/sys/start.s',
-            'string.c': 'code/sys/string.c',
             'string.h': 'code/sys/string.h',
-            'syscall.c': 'code/sys/syscall.c',
-            'thrasm.s': 'code/sys/thrasm.s',
-            'thread.c': 'code/sys/thread.c',
             'thread.h': 'code/sys/thread.h',
-            'timer.c': 'code/sys/timer.c',
             'timer.h': 'code/sys/timer.h',
             'trap.h': 'code/sys/trap.h',
-            'trap.s': 'code/sys/trap.s',
           },
           usr: {
-            bin: {
-              trek: 'code/usr/bin/trek',
-            },
-            Makefile: 'code/usr/Makefile',
             'error.h': 'code/usr/error.h',
-            'heap.c': 'code/usr/heap.c',
             'heap.h': 'code/usr/heap.h',
-            'hello.c': 'code/usr/hello.c',
-            'io.c': 'code/usr/io.c',
             'io.h': 'code/usr/io.h',
-            'no_umode.ld': 'code/usr/no_umode.ld',
             'scnum.h': 'code/usr/scnum.h',
-            'start.s': 'code/usr/start.s',
-            'string.c': 'code/usr/string.c',
             'string.h': 'code/usr/string.h',
-            'syscall.S': 'code/usr/syscall.S',
             'syscall.h': 'code/usr/syscall.h',
-            'umode.ld': 'code/usr/umode.ld',
-          },
-          util: {
-            fs: {
-              mkfs_ktfs: 'code/util/fs/mkfs_ktfs',
-              mkfs_ktfs_inorder: 'code/util/fs/mkfs_ktfs_inorder',
-              unmkfs_ktfs: 'code/util/fs/unmkfs_ktfs',
-            },
           },
         },
       };
@@ -378,7 +392,7 @@
             content
           )}</code></pre>`;
         } catch (error) {
-          fileContent.innerHTML = `<div class="error">Error loading file: ${error.message}<br>Make sure the file exists at: ${path}</div>`;
+          fileContent.innerHTML = `<div class="error">error: ${error.message}<br><br>path: ${path}</div>`;
         }
       }
 
@@ -402,9 +416,9 @@
             // This is a folder
             const folderDiv = document.createElement('div');
             folderDiv.className = 'tree-item folder';
-            folderDiv.style.paddingLeft = `${level * 1}rem`;
+            folderDiv.style.paddingLeft = `${level * 0.8}rem`;
 
-            const folderHTML = `<span class="folder-toggle">▶</span> 📁 ${name}`;
+            const folderHTML = `<span class="folder-toggle">▸</span>${name}/`;
             folderDiv.innerHTML = folderHTML;
 
             const contentDiv = document.createElement('div');
@@ -415,10 +429,10 @@
               const toggle = folderDiv.querySelector('.folder-toggle');
               if (contentDiv.classList.contains('open')) {
                 contentDiv.classList.remove('open');
-                toggle.textContent = '▶';
+                toggle.textContent = '▸';
               } else {
                 contentDiv.classList.add('open');
-                toggle.textContent = '▼';
+                toggle.textContent = '▾';
               }
             });
 
@@ -429,8 +443,8 @@
             // This is a file
             const fileDiv = document.createElement('div');
             fileDiv.className = 'tree-item file';
-            fileDiv.style.paddingLeft = `${level * 1}rem`;
-            fileDiv.innerHTML = `📄 ${name}`;
+            fileDiv.style.paddingLeft = `${level * 0.8 + 0.6}rem`;
+            fileDiv.innerHTML = name;
             fileDiv.addEventListener('click', (e) => {
               e.stopPropagation();
               document.querySelectorAll('.tree-item').forEach((item) => {
