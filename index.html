@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Operating System Project</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f5f5f5;
+      }
+
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      .section {
+        background: white;
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .section h2 {
+        color: #667eea;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 1rem auto;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .video-container video {
+        width: 100%;
+        display: block;
+      }
+
+      .file-explorer {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 1rem;
+        height: 600px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .file-tree {
+        background: #f8f9fa;
+        padding: 1rem;
+        overflow-y: auto;
+        border-right: 1px solid #ddd;
+      }
+
+      .file-content {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 1rem;
+        overflow-y: auto;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+      }
+
+      .tree-item {
+        padding: 0.3rem 0.5rem;
+        cursor: pointer;
+        user-select: none;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .tree-item:hover {
+        background: #e9ecef;
+      }
+
+      .tree-item.selected {
+        background: #667eea;
+        color: white;
+      }
+
+      .tree-item.folder {
+        font-weight: 500;
+      }
+
+      .folder-toggle {
+        cursor: pointer;
+        margin-right: 0.3rem;
+        display: inline-block;
+        width: 12px;
+      }
+
+      .folder-content {
+        display: none;
+      }
+
+      .folder-content.open {
+        display: block;
+      }
+
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .placeholder {
+        color: #888;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .description {
+        line-height: 1.8;
+        color: #555;
+      }
+
+      .description h3 {
+        color: #667eea;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .description ul {
+        margin-left: 2rem;
+        margin-top: 0.5rem;
+      }
+
+      .description li {
+        margin-bottom: 0.5rem;
+      }
+
+      .error {
+        color: #dc3545;
+        padding: 1rem;
+        background: #f8d7da;
+        border-radius: 4px;
+        margin-top: 1rem;
+      }
+
+      .loading {
+        color: #666;
+        text-align: center;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🖥️ My Operating System Project</h1>
+      <p>A custom OS with full Doom support</p>
+    </header>
+
+    <div class="container">
+      <!-- Video Section -->
+      <div class="section">
+        <h2>Doom Running on My OS</h2>
+        <div class="video-container">
+          <video controls>
+            <source src="doom-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p style="text-align: center; margin-top: 1rem; color: #666">
+          <em>Upload your doom-demo.mp4 file to the repository root</em>
+        </p>
+      </div>
+
+      <!-- Description Section -->
+      <div class="section">
+        <h2>Project Overview</h2>
+        <div class="description">
+          <p>
+            This is a custom operating system built from scratch with support
+            for running Doom. The project demonstrates fundamental OS concepts
+            including memory management, process scheduling, and graphics
+            rendering.
+          </p>
+
+          <h3>Key Features</h3>
+          <ul>
+            <li>
+              <strong>Custom Bootloader:</strong> Loads the kernel into memory
+              and transfers control
+            </li>
+            <li>
+              <strong>Memory Management:</strong> Implements paging and virtual
+              memory
+            </li>
+            <li>
+              <strong>Process Scheduler:</strong> Round-robin scheduling with
+              priority queues
+            </li>
+            <li>
+              <strong>Graphics Driver:</strong> VGA and framebuffer support for
+              Doom rendering
+            </li>
+            <li>
+              <strong>Keyboard & Mouse Input:</strong> PS/2 controller drivers
+            </li>
+            <li>
+              <strong>File System:</strong> Basic FAT32 implementation for game
+              data
+            </li>
+          </ul>
+
+          <h3>Technical Details</h3>
+          <p>
+            The OS is written primarily in C with assembly for low-level
+            operations. It boots via GRUB and runs in protected mode. The Doom
+            port required implementing a custom graphics interface and input
+            handling system compatible with the original Doom engine.
+          </p>
+
+          <h3>Building and Running</h3>
+          <p>
+            See the README.md in the source tree for build instructions. You'll
+            need a cross-compiler toolchain and QEMU or VirtualBox for testing.
+          </p>
+        </div>
+      </div>
+
+      <!-- File Explorer Section -->
+      <div class="section">
+        <h2>Source Code Explorer</h2>
+
+        <div class="file-explorer">
+          <div class="file-tree" id="fileTree">
+            <div class="loading">Loading file structure...</div>
+          </div>
+          <div class="file-content" id="fileContent">
+            <div class="placeholder">Select a file to view its contents</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const fileTree = document.getElementById('fileTree');
+      const fileContent = document.getElementById('fileContent');
+
+      // This will hold the file structure
+      const fileStructure = {
+        code: {
+          sys: {
+            dev: {
+              'fbuf.h': 'code/sys/dev/fbuf.h',
+              'rtc.c': 'code/sys/dev/rtc.c',
+              'rtc.h': 'code/sys/dev/rtc.h',
+              'uart.c': 'code/sys/dev/uart.c',
+              'uart.h': 'code/sys/dev/uart.h',
+              'vioblk.c': 'code/sys/dev/vioblk.c',
+              'viorng.c': 'code/sys/dev/viorng.c',
+              'virtio.c': 'code/sys/dev/virtio.c',
+              'virtio.h': 'code/sys/dev/virtio.h',
+            },
+            Makefile: 'code/sys/Makefile',
+            'assert.c': 'code/sys/assert.c',
+            'assert.h': 'code/sys/assert.h',
+            'cache.c': 'code/sys/cache.c',
+            'cache.h': 'code/sys/cache.h',
+            'conf.h': 'code/sys/conf.h',
+            'console.c': 'code/sys/console.c',
+            'console.h': 'code/sys/console.h',
+            'device.c': 'code/sys/device.c',
+            'device.h': 'code/sys/device.h',
+            'elf.c': 'code/sys/elf.c',
+            'elf.h': 'code/sys/elf.h',
+            'error.c': 'code/sys/error.c',
+            'error.h': 'code/sys/error.h',
+            'excp.c': 'code/sys/excp.c',
+            'fs.h': 'code/sys/fs.h',
+            'heap.h': 'code/sys/heap.h',
+            'heap0.c': 'code/sys/heap0.c',
+            'intr.c': 'code/sys/intr.c',
+            'intr.h': 'code/sys/intr.h',
+            'io.c': 'code/sys/io.c',
+            'io.h': 'code/sys/io.h',
+            'ioimpl.h': 'code/sys/ioimpl.h',
+            'kernel.ld': 'code/sys/kernel.ld',
+            'ktfs.c': 'code/sys/ktfs.c',
+            'ktfs.h': 'code/sys/ktfs.h',
+            'main.c': 'code/sys/main.c',
+            'memory.c': 'code/sys/memory.c',
+            'memory.h': 'code/sys/memory.h',
+            'plic.c': 'code/sys/plic.c',
+            'plic.h': 'code/sys/plic.h',
+            'process.c': 'code/sys/process.c',
+            'process.h': 'code/sys/process.h',
+            'riscv.h': 'code/sys/riscv.h',
+            'scnum.h': 'code/sys/scnum.h',
+            'see.h': 'code/sys/see.h',
+            'see.s': 'code/sys/see.s',
+            'start.s': 'code/sys/start.s',
+            'string.c': 'code/sys/string.c',
+            'string.h': 'code/sys/string.h',
+            'syscall.c': 'code/sys/syscall.c',
+            'thrasm.s': 'code/sys/thrasm.s',
+            'thread.c': 'code/sys/thread.c',
+            'thread.h': 'code/sys/thread.h',
+            'timer.c': 'code/sys/timer.c',
+            'timer.h': 'code/sys/timer.h',
+            'trap.h': 'code/sys/trap.h',
+            'trap.s': 'code/sys/trap.s',
+          },
+          usr: {
+            bin: {
+              trek: 'code/usr/bin/trek',
+            },
+            Makefile: 'code/usr/Makefile',
+            'error.h': 'code/usr/error.h',
+            'heap.c': 'code/usr/heap.c',
+            'heap.h': 'code/usr/heap.h',
+            'hello.c': 'code/usr/hello.c',
+            'io.c': 'code/usr/io.c',
+            'io.h': 'code/usr/io.h',
+            'no_umode.ld': 'code/usr/no_umode.ld',
+            'scnum.h': 'code/usr/scnum.h',
+            'start.s': 'code/usr/start.s',
+            'string.c': 'code/usr/string.c',
+            'string.h': 'code/usr/string.h',
+            'syscall.S': 'code/usr/syscall.S',
+            'syscall.h': 'code/usr/syscall.h',
+            'umode.ld': 'code/usr/umode.ld',
+          },
+          util: {
+            fs: {
+              mkfs_ktfs: 'code/util/fs/mkfs_ktfs',
+              mkfs_ktfs_inorder: 'code/util/fs/mkfs_ktfs_inorder',
+              unmkfs_ktfs: 'code/util/fs/unmkfs_ktfs',
+            },
+          },
+        },
+      };
+
+      // Function to fetch and display file content
+      async function loadFile(path) {
+        try {
+          const response = await fetch(path);
+          if (!response.ok) {
+            throw new Error(`Failed to load file: ${response.status}`);
+          }
+          const content = await response.text();
+          fileContent.innerHTML = `<pre><code>${escapeHtml(
+            content
+          )}</code></pre>`;
+        } catch (error) {
+          fileContent.innerHTML = `<div class="error">Error loading file: ${error.message}<br>Make sure the file exists at: ${path}</div>`;
+        }
+      }
+
+      // Render the file tree
+      function renderFileTree() {
+        fileTree.innerHTML = '';
+        renderTreeRecursive(fileStructure, fileTree, 0);
+      }
+
+      function renderTreeRecursive(node, parent, level) {
+        const entries = Object.entries(node).sort(([a], [b]) => {
+          const aIsFolder = typeof node[a] === 'object';
+          const bIsFolder = typeof node[b] === 'object';
+          if (aIsFolder && !bIsFolder) return -1;
+          if (!aIsFolder && bIsFolder) return 1;
+          return a.localeCompare(b);
+        });
+
+        entries.forEach(([name, value]) => {
+          if (typeof value === 'object') {
+            // This is a folder
+            const folderDiv = document.createElement('div');
+            folderDiv.className = 'tree-item folder';
+            folderDiv.style.paddingLeft = `${level * 1}rem`;
+
+            const folderHTML = `<span class="folder-toggle">▶</span> 📁 ${name}`;
+            folderDiv.innerHTML = folderHTML;
+
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'folder-content';
+
+            folderDiv.addEventListener('click', (e) => {
+              e.stopPropagation();
+              const toggle = folderDiv.querySelector('.folder-toggle');
+              if (contentDiv.classList.contains('open')) {
+                contentDiv.classList.remove('open');
+                toggle.textContent = '▶';
+              } else {
+                contentDiv.classList.add('open');
+                toggle.textContent = '▼';
+              }
+            });
+
+            parent.appendChild(folderDiv);
+            parent.appendChild(contentDiv);
+            renderTreeRecursive(value, contentDiv, level + 1);
+          } else {
+            // This is a file
+            const fileDiv = document.createElement('div');
+            fileDiv.className = 'tree-item file';
+            fileDiv.style.paddingLeft = `${level * 1}rem`;
+            fileDiv.innerHTML = `📄 ${name}`;
+            fileDiv.addEventListener('click', (e) => {
+              e.stopPropagation();
+              document.querySelectorAll('.tree-item').forEach((item) => {
+                item.classList.remove('selected');
+              });
+              fileDiv.classList.add('selected');
+              loadFile(value);
+            });
+            parent.appendChild(fileDiv);
+          }
+        });
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // Initialize the file tree when page loads
+      renderFileTree();
+    </script>
+  </body>
+</html>
